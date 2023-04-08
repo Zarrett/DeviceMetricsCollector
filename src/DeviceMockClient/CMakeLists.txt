@@ -15,7 +15,7 @@ target_link_libraries(DeviceMockClient ${Boost_LIBRARIES})
 target_include_directories(
     DeviceMockClient
     PRIVATE 
-    "${CMAKE_CURRENT_SOURCE_DIR}/src/FileGroups/include"
+    "${CMAKE_CURRENT_SOURCE_DIR}/include"
 )
 
 if(UNIX)

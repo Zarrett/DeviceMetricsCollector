@@ -9,6 +9,8 @@ if(UNIX)
     set(THREADS_PREFER_PTHREAD_FLAG ON)
     find_package(Threads REQUIRED)
     target_link_libraries(DeviceMetricsCollecor PRIVATE Threads::Threads)
+else()
+    set(Boost_INCLUDE_DIR "C:/Boost/boost_1_81_0")
 endif()
 
 set(Boost_USE_MULTITHREADED      ON)
@@ -24,3 +26,4 @@ LINK_DIRECTORIES(${Boost_LIBRARY_DIRS})
 
 add_subdirectory(${CMAKE_SOURCE_DIR}/src/MetricsCollector)
 add_subdirectory(${CMAKE_SOURCE_DIR}/src/DeviceMockClient)
+add_subdirectory(${CMAKE_SOURCE_DIR}/src/Scheduler)
