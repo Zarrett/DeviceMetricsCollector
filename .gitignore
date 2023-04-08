@@ -1,3 +1,7 @@
+#Visual studio temp files
+*.vs
+*out
+
 # Prerequisites
 *.d
 
