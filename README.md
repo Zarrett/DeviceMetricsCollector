@@ -45,7 +45,12 @@ Example:<br>
 2023-04-09 19:23:22.7984870; DeviceID: 123; TotalRcv: 31; Message: Measurements: 2197899581;
 
 Format:<br>
-Timestamp; DeviceID; Total received messages; Message;
+Timestamp; DeviceID; Totat received; Message;
+
+- Timestamp - current timestamp
+- DeviceID - unique device identifier
+- Totat received - total messages ```received from deviceID```
+- Message - payload
 
 ### Packet format
 +-----------------------------------------------------+<br>

@@ -3,6 +3,7 @@
 #include "Message.hpp"
 
 #include <iostream>
+#include <string_view>
 #include <deque>
 #include <boost/asio.hpp>
 #include <boost/bind/bind.hpp>

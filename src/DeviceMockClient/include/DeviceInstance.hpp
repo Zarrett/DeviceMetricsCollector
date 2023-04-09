@@ -8,10 +8,8 @@ namespace DeviceMockClient {
 	public:
 		DeviceInstance(boost::asio::io_service& io_service, uint16_t port, uint32_t deviceID, size_t msgNum);
 
-		void run();
-
 	private:
-
+		void run();
 		void generateMessages();
 		
 		std::unique_ptr<DeviceClient> m_client;

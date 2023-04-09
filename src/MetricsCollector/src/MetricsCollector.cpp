@@ -13,7 +13,7 @@ namespace MetricsCollector {
 
 	void DeviceMetricsCollector::startCollecting()
 	{
-		m_server = std::make_unique<DeviceServer>(*m_ioService);
+		m_server = std::make_unique<DeviceServer>(*m_ioService, m_port);
 
 		m_server->subscribeOnMessageReceived([this](const std::shared_ptr<PacketParser::Message>& message) {
 			onMessageReceived(*message);

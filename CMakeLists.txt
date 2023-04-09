@@ -2,13 +2,14 @@
 # project specific logic here.
 #
 cmake_minimum_required (VERSION 3.12)
+set (CMAKE_CXX_STANDARD 20)
 
 project ("DeviceMetricsCollecor")
 
 if(UNIX)
     set(THREADS_PREFER_PTHREAD_FLAG ON)
     find_package(Threads REQUIRED)
-    link_libraries(DeviceMetricsCollecor PRIVATE Threads::Threads)
+    link_libraries(Threads::Threads)
 else()
     set(Boost_INCLUDE_DIR "C:/Boost/boost_1_81_0")
 endif()
