@@ -6,8 +6,7 @@
 namespace MetricsCollector {
 
 	DeviceMetricsCollector::DeviceMetricsCollector(uint16_t port)
-		: m_schedulerGuard(std::make_shared<bool>(true))
-		, m_ioService(std::make_unique<boost::asio::io_service>())
+		: m_ioService(std::make_unique<boost::asio::io_service>())
 		, m_port(port)
 	{
 	}
@@ -45,7 +44,7 @@ namespace MetricsCollector {
 
 		std::stringstream log{};
 
-		log << now
+		log << currentTime
 			<< "; DeviceID: "
 			<< header->m_deviceID
 			<< "; TotalRcv: "

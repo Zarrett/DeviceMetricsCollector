@@ -35,7 +35,7 @@ namespace DeviceMockClient {
 		std::mt19937 rng(dev());
 		std::uniform_int_distribution<std::mt19937::result_type> range(1, 9);
 
-		for (size_t i(0); i < m_msgNum; ++i)
+		for (size_t i(0U); i < m_msgNum; ++i)
 		{
 			std::stringstream messageStr{};
 
@@ -56,7 +56,7 @@ namespace DeviceMockClient {
 			header->m_deviceID = m_deviceID;
 			header->m_validationID = ApplicationCode;
 
-			for (size_t i(0); i < header->m_dataLenght; ++i)
+			for (size_t i(0U); i < header->m_dataLenght; ++i)
 			{
 				data[i] = messageStr.str().at(i);
 			}

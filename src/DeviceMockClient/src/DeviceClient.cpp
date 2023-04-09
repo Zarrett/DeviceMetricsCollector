@@ -1,6 +1,8 @@
 #include "DeviceClient.hpp"
 #include "Message.hpp"
 
+#include <string_view>
+
 namespace DeviceMockClient {
 
     DeviceClient::DeviceClient(boost::asio::io_service& io_service

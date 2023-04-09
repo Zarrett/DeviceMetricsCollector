@@ -26,7 +26,5 @@ namespace MetricsCollector {
 		std::unique_ptr <DeviceServer> m_server;
 
 		std::unique_ptr<boost::asio::io_service> m_ioService;
-
-		std::shared_ptr<bool> m_schedulerGuard;
 	};
 }

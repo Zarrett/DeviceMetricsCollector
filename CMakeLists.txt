@@ -1,14 +1,14 @@
 ﻿# CMakeList.txt : CMake project for DeviceMetricsCollector, include source and define
 # project specific logic here.
 #
-cmake_minimum_required (VERSION 3.8)
+cmake_minimum_required (VERSION 3.12)
 
 project ("DeviceMetricsCollecor")
 
 if(UNIX)
     set(THREADS_PREFER_PTHREAD_FLAG ON)
     find_package(Threads REQUIRED)
-    target_link_libraries(DeviceMetricsCollecor PRIVATE Threads::Threads)
+    link_libraries(DeviceMetricsCollecor PRIVATE Threads::Threads)
 else()
     set(Boost_INCLUDE_DIR "C:/Boost/boost_1_81_0")
 endif()

@@ -1,7 +1,7 @@
-﻿# CMakeList.txt : CMake project for MetricsCollecor, include source and define
+﻿# CMakeList.txt : CMake project for MetricsCollector, include source and define
 # project specific logic here.
 #
-cmake_minimum_required (VERSION 3.8)
+cmake_minimum_required (VERSION 3.12)
 
 set(
     SOURCES 
@@ -11,10 +11,12 @@ set(
 )
 
 # Add source to this project's executable.
-add_executable (MetricsCollecor ${SOURCES})
+add_executable (MetricsCollector ${SOURCES})
+
+set_property(TARGET MetricsCollector PROPERTY CXX_STANDARD 20)
 
 target_include_directories(
-    MetricsCollecor
+    MetricsCollector
     PRIVATE 
     "${CMAKE_CURRENT_SOURCE_DIR}/include"
 )
@@ -29,6 +31,5 @@ IF (Boost_FOUND)
     include_directories(${Boost_INCLUDE_DIR})
 endif()
 
-if (CMAKE_VERSION VERSION_GREATER 3.12)
-    set_property(TARGET MetricsCollecor PROPERTY CXX_STANDARD 20)
-endif()
+    
+
