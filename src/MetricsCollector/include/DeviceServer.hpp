@@ -16,19 +16,19 @@ namespace MetricsCollector {
 
     constexpr size_t MaxPacketSize = 65551U;
     constexpr size_t MinPacketSize = 16U;
-    constexpr uint8_t ServerPort = 1111U;
 
     using MessageReceivedCallback = std::function<void(const std::shared_ptr<PacketParser::Message>& message)>;
 
     class DeviceServer {
     public:
-        DeviceServer(boost::asio::io_service& io_service);
+        DeviceServer(boost::asio::io_service& io_service, uint16_t port);
+        ~DeviceServer();
 
         void subscribeOnMessageReceived(const MessageReceivedCallback& callback);
 
-    private:
         void startReceive();
 
+    private:
         void handleReceive(const boost::system::error_code& error,
             std::size_t bytes_transferred);
 
@@ -39,7 +39,7 @@ namespace MetricsCollector {
         
         udp::socket m_socket;
         udp::endpoint m_remoteEndpoint;
-        std::array<uint8_t, MaxPacketSize> m_recvBuffer;
+        std::array<uint8_t, MaxPacketSize> m_recvBuffer{};
         size_t m_currentBufferSize = 0;
 
         MessageReceivedCallback m_messageReceivedCallback;

@@ -8,12 +8,10 @@ set(
     "${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/src/DeviceServer.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/src/MetricsCollector.cpp"
-    
 )
 
 # Add source to this project's executable.
 add_executable (MetricsCollecor ${SOURCES})
-target_link_libraries(MetricsCollecor Scheduler)
 
 target_include_directories(
     MetricsCollecor

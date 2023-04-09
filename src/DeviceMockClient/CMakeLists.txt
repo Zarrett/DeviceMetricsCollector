@@ -9,7 +9,7 @@ set(
 )
 
 # Add source to this project's executable.
-add_executable (DeviceMockClient ${SOURCES})
+add_executable (DeviceMockClient ${SOURCES} "src/DeviceClient.cpp" "src/DeviceInstance.cpp")
 target_link_libraries(DeviceMockClient ${Boost_LIBRARIES})
 
 target_include_directories(

@@ -26,4 +26,3 @@ LINK_DIRECTORIES(${Boost_LIBRARY_DIRS})
 
 add_subdirectory(${CMAKE_SOURCE_DIR}/src/MetricsCollector)
 add_subdirectory(${CMAKE_SOURCE_DIR}/src/DeviceMockClient)
-add_subdirectory(${CMAKE_SOURCE_DIR}/src/Scheduler)

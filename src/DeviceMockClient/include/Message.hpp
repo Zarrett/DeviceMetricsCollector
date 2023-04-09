@@ -1,26 +1,26 @@
 #pragma once
 
+#include <vector>
+#include <cstdint>
 #include <cstring>
 
-namespace MetricsCollector::PacketParser {
+namespace DeviceMockClient {
 
 	constexpr uint32_t ApplicationCode = 12345U;
 
 	constexpr size_t MaxBodySize = 65535U;
-
+	
 	struct PacketHeader {
 		uint32_t m_commandCode;
 		uint32_t m_deviceID;
 		uint32_t m_validationID;
 		uint32_t m_dataLenght;
 	};
-
-	using RawData = std::array<uint8_t, (MaxBodySize + sizeof(PacketHeader))>;
-
+	
 	class Message
 	{
 	public:
-		Message(const uint8_t* data, const size_t length) 
+		Message(const uint8_t* data, const size_t length)
 			:m_length(length)
 		{
 			for (size_t i(0U); i < length; ++i)
@@ -29,12 +29,28 @@ namespace MetricsCollector::PacketParser {
 			}
 		}
 
-		const PacketHeader* getHeader() const
+		Message(const size_t length)
+			:m_length(length)
+		{
+			m_data.resize(length);
+		}
+
+		PacketHeader* getHeader()
+		{
+			return  reinterpret_cast<PacketHeader*>(m_data.data());
+		}
+
+		const PacketHeader* getConstHeader() const
 		{
 			return  reinterpret_cast<const PacketHeader*>(m_data.data());
 		}
 
-		const uint8_t* getBinaryData() const
+		const uint8_t* getConstData() const
+		{
+			return (m_data.data() + sizeof(PacketHeader));
+		}
+
+		uint8_t* getBinaryData()
 		{
 			return (m_data.data() + sizeof(PacketHeader));
 		}
@@ -43,8 +59,8 @@ namespace MetricsCollector::PacketParser {
 		{
 			const auto* header = getHeader();
 
-			if ((!header) 
-				|| (header->m_validationID != ApplicationCode) 
+			if ((!header)
+				|| (header->m_validationID != ApplicationCode)
 				|| (header->m_dataLenght > MaxBodySize))
 			{
 				return false;
@@ -53,9 +69,18 @@ namespace MetricsCollector::PacketParser {
 			return true;
 		}
 
+		const std::vector<uint8_t>& getRawData() const
+		{
+			return m_data;
+		}
+
+		const size_t getRawDataLength() const
+		{
+			return m_length;
+		}
+
 	private:
 		std::vector<uint8_t> m_data;
 		size_t m_length;
 	};
-
-} // namespace MetricsCollector
+} // namespace DeviceMockClient
