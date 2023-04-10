@@ -32,7 +32,7 @@ namespace DeviceMockClient {
 		Message(const size_t length)
 			:m_length(length)
 		{
-			m_data.resize(length);
+			m_data.resize(length, 0U);
 		}
 
 		PacketHeader* getHeader()
@@ -40,28 +40,19 @@ namespace DeviceMockClient {
 			return  reinterpret_cast<PacketHeader*>(m_data.data());
 		}
 
-		const PacketHeader* getConstHeader() const
-		{
-			return  reinterpret_cast<const PacketHeader*>(m_data.data());
-		}
-
-		const uint8_t* getConstData() const
-		{
-			return (m_data.data() + sizeof(PacketHeader));
-		}
-
 		uint8_t* getBinaryData()
 		{
 			return (m_data.data() + sizeof(PacketHeader));
 		}
 
-		bool isValid()
+		bool isValid(const size_t totalBytesRecvd)
 		{
 			const auto* header = getHeader();
 
 			if ((!header)
 				|| (header->m_validationID != ApplicationCode)
-				|| (header->m_dataLenght > MaxBodySize))
+				|| (header->m_dataLenght > MaxBodySize)
+				|| (totalBytesRecvd != (header->m_dataLenght + sizeof(PacketHeader))))
 			{
 				return false;
 			}

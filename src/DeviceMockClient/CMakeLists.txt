@@ -26,3 +26,4 @@ if(UNIX)
     target_link_libraries(DeviceMockClient PRIVATE Threads::Threads)
 endif()
 
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/tests)
