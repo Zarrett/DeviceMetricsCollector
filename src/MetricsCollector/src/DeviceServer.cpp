@@ -53,11 +53,11 @@ void DeviceServer::handleSend(const boost::system::error_code& ec,
     startReceive();
 }
 
-void DeviceServer::onMessageReceived(size_t bufferSize)
+void DeviceServer::onMessageReceived(size_t bytesTransferred)
 {
-    const auto& message = std::make_shared<PacketParser::Message>(m_recvBuffer.data(), bufferSize);
+    const auto& message = std::make_shared<PacketParser::Message>(m_recvBuffer.data(), bytesTransferred);
 
-    if (message->isValid() && m_messageReceivedCallback)
+    if (message->isValid(bytesTransferred) && m_messageReceivedCallback)
     {
         m_messageReceivedCallback(message);
     }

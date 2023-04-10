@@ -39,13 +39,14 @@ namespace MetricsCollector::PacketParser {
 			return (m_data.data() + sizeof(PacketHeader));
 		}
 
-		bool isValid()
+		bool isValid(const size_t totalBytesRecvd)
 		{
 			const auto* header = getHeader();
 
 			if ((!header) 
 				|| (header->m_validationID != ApplicationCode) 
-				|| (header->m_dataLenght > MaxBodySize))
+				|| (header->m_dataLenght > MaxBodySize)
+				|| (totalBytesRecvd != (header->m_dataLenght + sizeof(PacketHeader))))
 			{
 				return false;
 			}
