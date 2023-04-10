@@ -46,13 +46,15 @@ namespace DeviceMockClient {
 				messageStr << std::to_string(range(rng));
 			}
 
-			Message msg((messageStr.str().size() + sizeof(PacketHeader)));
+			const auto dataLength = messageStr.str().length();
+
+			Message msg((dataLength + sizeof(PacketHeader)));
 
 			auto* header = msg.getHeader();
 			auto* data = msg.getBinaryData();
 
 			header->m_commandCode = 1U;
-			header->m_dataLenght = messageStr.str().size();
+			header->m_dataLenght = dataLength;
 			header->m_deviceID = m_deviceID;
 			header->m_validationID = ApplicationCode;
 

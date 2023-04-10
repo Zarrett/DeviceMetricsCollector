@@ -6,9 +6,9 @@
 #include <functional>
 #include <memory>
 
-using boost::asio::ip::udp;
-
 namespace MetricsCollector {
+
+    using boost::asio::ip::udp;
 
     namespace PacketParser {
         class Message;
