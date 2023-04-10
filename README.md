@@ -8,14 +8,16 @@ This project is a simple implementation of conversation between abstract devices
 
 The conversation is implemented using UDP protocol, by implementing simple server and client side applications.
 
-Project consists of 2 separate targets:
--  MetricsCollector - server side data collector, responsible for accepting messages and displaying their content in logs.
--  DeviceMockClient - client side application which mimics a device, sending random measurments with a small delay.
+Project consists of 2 separate targets:<br>
+
+— MetricsCollector - server side data collector, responsible for accepting messages and displaying their content in logs.<br>
+
+— DeviceMockClient - client side application which mimics a device, sending random measurments with a small delay.<br>
 
 ## How to use
 
--  Before building, make sure Boost is installed on your system.
--  Build, using cmake<br>
+— Before building, make sure Boost is installed on your system.<br>
+— Build, using cmake<br>
 
 Example:<br>
 ```
@@ -45,21 +47,27 @@ You can create multiple instances of DeviceMockClient, as long as each has it's 
 ### Log format
 
 Example:<br>
-2023-04-09 19:23:22.7984870; DeviceID: 123; TotalRcv: 31; Message: Measurements: 2197899581;
+```2023-04-09 19:23:22.7984870; DeviceID: 123; TotalRcv: 31; Message: Measurements: 2197899581;```
 
 Format:<br>
-Timestamp; DeviceID; Totat received; Message;
+```Timestamp; DeviceID; Total received; Message;```
 
--  Timestamp - current timestamp
--  DeviceID - unique device identifier
--  Totat received - total messages ```received from deviceID```
--  Message - payload
+*   `'Timestamp'`
+    — current timestamp
+*   `'DeviceID'`
+    — unique device identifier
+*   `'Total received'`
+    — total messages ```received from deviceID```
+*   `'Message'`
+    — payload
 
 ### Packet format
-+-----------------------------------------------------+<br>
-| Command Code (4 bytes) | Device ID (4 bytes)        |<br>
-+-----------------------------------------------------+<br>
-| Validation ID (4 bytes)| Length (4 bytes)           |<br>
-+-----------------------------------------------------+<br>
-| Binary Data (0 - 65535 bytes)                       |<br>
-+-----------------------------------------------------+<br>
+```
++-----------------------------------------------------+
+| Command Code (4 bytes) | Device ID (4 bytes)        |
++-----------------------------------------------------+
+| Validation ID (4 bytes)| Length (4 bytes)           |
++-----------------------------------------------------+
+| Binary Data (0 - 65535 bytes)                       |
++-----------------------------------------------------+
+```
