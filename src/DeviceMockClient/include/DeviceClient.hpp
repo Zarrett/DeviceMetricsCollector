@@ -40,7 +40,7 @@ namespace DeviceMockClient
 
 
 		udp::socket m_socket;
-		std::uint16_t m_port;
+        std::uint16_t m_port{0};
 		std::string_view m_ipAddress;
 
         std::vector<uint8_t> m_dataBuffer;
