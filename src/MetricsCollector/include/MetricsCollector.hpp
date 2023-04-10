@@ -14,7 +14,7 @@ namespace MetricsCollector {
 	class DeviceMetricsCollector
 	{
 	public:
-		DeviceMetricsCollector(uint16_t port);
+		explicit DeviceMetricsCollector(uint16_t port);
 
 		void startCollecting();
 	private:

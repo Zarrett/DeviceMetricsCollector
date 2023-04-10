@@ -1,6 +1,6 @@
 # DeviceMetricsCollector
 
-![CI](https://github.com/Zarrett/DeviceMetricsCollector/actions/workflows/c-cpp.yml/badge.svg)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/44dede0d121f4f8a8e24c441637d6a5e)](https://app.codacy.com/gh/Zarrett/DeviceMetricsCollector/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)![CI](https://github.com/Zarrett/DeviceMetricsCollector/actions/workflows/c-cpp.yml/badge.svg)
 
 ## Introduction
 
@@ -16,6 +16,7 @@ Project consists of 2 separate targets:
 
 - Before building, make sure Boost is installed on your system.
 - Build, using cmake<br>
+
 Example:<br>
 ```
 mkdir build
