@@ -29,12 +29,18 @@ namespace MetricsCollector::PacketParser {
 			}
 		}
 
+		Message(const size_t length)
+			:m_length(length)
+		{
+			m_data.resize(length, 0U);
+		}
+
 		const PacketHeader* getHeader() const
 		{
 			return  reinterpret_cast<const PacketHeader*>(m_data.data());
 		}
 
-		const uint8_t* getBinaryData() const
+		const uint8_t* getBinaryData() const 
 		{
 			return (m_data.data() + sizeof(PacketHeader));
 		}
