@@ -29,7 +29,7 @@ namespace MetricsCollector::PacketParser {
 			}
 		}
 
-		Message(const size_t length)
+		explicit Message(const size_t length)
 			:m_length(length)
 		{
 			m_data.resize(length, 0U);

@@ -9,13 +9,13 @@ This project is a simple implementation of conversation between abstract devices
 The conversation is implemented using UDP protocol, by implementing simple server and client side applications.
 
 Project consists of 2 separate targets:
-- MetricsCollector - server side data collector, responsible for accepting messages and displaying their content in logs.
-- DeviceMockClient - client side application which mimics a device, sending random measurments with a small delay.
+-  MetricsCollector - server side data collector, responsible for accepting messages and displaying their content in logs.
+-  DeviceMockClient - client side application which mimics a device, sending random measurments with a small delay.
 
 ## How to use
 
-- Before building, make sure Boost is installed on your system.
-- Build, using cmake<br>
+-  Before building, make sure Boost is installed on your system.
+-  Build, using cmake<br>
 
 Example:<br>
 ```
@@ -50,10 +50,10 @@ Example:<br>
 Format:<br>
 Timestamp; DeviceID; Totat received; Message;
 
-- Timestamp - current timestamp
-- DeviceID - unique device identifier
-- Totat received - total messages ```received from deviceID```
-- Message - payload
+-  Timestamp - current timestamp
+-  DeviceID - unique device identifier
+-  Totat received - total messages ```received from deviceID```
+-  Message - payload
 
 ### Packet format
 +-----------------------------------------------------+<br>
