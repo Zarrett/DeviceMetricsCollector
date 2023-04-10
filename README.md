@@ -1,5 +1,7 @@
 # DeviceMetricsCollector
 
+![CI](https://github.com/Zarrett/DeviceMetricsCollector/actions/workflows/c-cpp.yml/badge.svg)
+
 ## Introduction
 
 This project is a simple implementation of conversation between abstract devices and data collector.
