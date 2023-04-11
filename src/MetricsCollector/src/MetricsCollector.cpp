@@ -39,7 +39,7 @@ namespace MetricsCollector {
 		}
 		else
 		{
-			m_counterMap[header->m_deviceID] = 0U;
+			m_counterMap[header->m_deviceID] = 1U;
 		}
 
 		std::stringstream log{};
